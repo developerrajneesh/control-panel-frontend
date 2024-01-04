@@ -1,0 +1,32 @@
+.custom-card {
+    width: 100%;
+    margin-bottom: 30px;
+    background: #c1c4d247;
+    padding: 10px;
+    overflow: hidden;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border: 1px solid transparent;
+    border-bottom: 5px solid transparent;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-transition: all 0.3s ease !important;
+    -o-transition: all 0.3s ease !important;
+    transition: all 0.3s ease !important;
+  }
+  .custom-card:hover {
+    border-bottom: 5px solid rgb(227, 242, 20);
+  
+    /* border: 1px solid rgb(227, 242, 20); */
+    -webkit-transform: translate(20px, -10px);
+    -ms-transform: translate(10px, -10px);
+    transform: translate(0, -10px );
+    -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  }
+  
+  .img-blog {
+    width: 100%;
+    height: 250px !important;
+    /* object-fit: cover; */
+  }
