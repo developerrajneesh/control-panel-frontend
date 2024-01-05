@@ -10,7 +10,13 @@ import { DataStore } from "../../Storage/DataStorage";
 export default function DataGridMui({ deleteApi, data }) {
   const [columns, setColumns] = React.useState([]);
   const [rows, setRows] = React.useState([]);
-  const { fetchAllProjects, fetchAllBlogs, fetchAllContacts } = DataStore();
+  const {
+    fetchAllProjects,
+    fetchAllBlogs,
+    fetchAllContacts,
+    fetchAllSkill,
+    fetchAllLink,
+  } = DataStore();
   React.useEffect(() => {
     if (data) {
       let dynamicColumns = [];
@@ -81,17 +87,15 @@ export default function DataGridMui({ deleteApi, data }) {
         .delete(`${process.env.REACT_APP_API_URL}${deleteApi}/${rowId}`)
         .then((response) => {
           fetchAllProjects();
-           fetchAllBlogs();
-            fetchAllContacts();
+          fetchAllBlogs();
+          fetchAllContacts();
+          fetchAllSkill();
+          fetchAllLink();
         });
-      // Implement any additional logic after a successful delete if needed
-      console.log(`Delete row with ID ${rowId} successful`);
 
-      // Update the UI by fetching and updating the data from the server
-      // or removing the row directly from the state
+
     } catch (error) {
       console.error(`Error deleting row with ID ${rowId}:`, error);
-      // Implement error handling logic if needed
     }
   };
 

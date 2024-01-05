@@ -1,7 +1,7 @@
 
 import "./App.css";
 
-import { Routes,Route } from "react-router-dom";
+import { Routes,Route, Navigate, useNavigate, useLocation } from "react-router-dom";
 import Layout from "./Components/Layout/Layout";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Blog from "./Pages/Blogs/Blog";
@@ -13,17 +13,30 @@ import Contact from "./Pages/PortFolio/Contact/Contact";
 import EmailTemplate from "./Pages/PortFolio/EmailTemplate/EmailTemplate";
 import AddProject from "./Pages/PortFolio/Projects/AddProject/AddProject";
 import Resume from "./Pages/PortFolio/Resume/Resume";
+import Login from "./Pages/Login/Login";
+import { useEffect } from "react";
 
 
 function App() {
+const navigate = useNavigate()
+const {pathname} = useLocation()
 
-  
+useEffect(()=>{
+   const tokendata = localStorage.getItem('tokenData');
+  if (!tokendata) {
+    navigate('/login')
+  }
+ },[pathname])
+
   return (
     <div>
     
    <Layout>
      <Routes>
-      <Route path="/" element={<Dashboard/>}/>
+     <Route path="/login" element={<Login/>}/>
+
+
+      <Route path="/" element={ <Dashboard/>}/>
       <Route path="/blog/blog" element={<Blog/>}/>
       <Route path="/blog/add-blog" element={<AddBlog/>}/>
       <Route path="/portfolio/project" element={<Project/>}/>
